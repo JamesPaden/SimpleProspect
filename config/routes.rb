@@ -15,7 +15,7 @@ Salesemails::Application.routes.draw do
 
   resources :users
 
-  root :to => 'users#index'
+  root :to => 'campaigns#index'
   resources :user_sessions
   resources :users
     

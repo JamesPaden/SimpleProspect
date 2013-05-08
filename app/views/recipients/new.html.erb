@@ -23,7 +23,7 @@
 </div>
 <div class="field">
 	<label>Start Time</label>
-	<%= select_datetime(Time.current, { :order => [:month, :day, :year], :prefix => "start_time" },  { :style => "width: auto;" }) %>
+	<%= select_datetime(Time.zone.now, { :order => [:month, :day, :year], :prefix => "start_time" },  { :style => "width: auto;" }) %>
 </div>
 <% unless @template_fields.nil? %>
 <% @template_fields.each_key do |template_field| %>

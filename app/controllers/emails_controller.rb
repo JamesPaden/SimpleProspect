@@ -84,6 +84,7 @@ class EmailsController < ApplicationController
 
   private
   def load_recipient
-    @recipient = Recipient.find(params[:recipient_id])
+    @campaign = Campaign.find(params[:campaign_id])
+    @recipient = @campaign.recipients.find(params[:recipient_id])
   end
 end

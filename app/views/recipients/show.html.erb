@@ -1,20 +1,27 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @recipient.name %></h1>
 
-<p>
-  <b>Subject:</b>
-  <%= @recipient.subject %>
-</p>
+<% if @emails.length > 0 %>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Sent</th>
+    <th>Message</th>
+    <th>Scheduled For</th>
+<!--    <th></th>
+    <th></th> -->
+  </tr>
 
-<p>
-  <b>Body:</b>
-  <%= @recipient.body %>
-</p>
-
-<p>
-  <b>Delay:</b>
-  <%= @recipient.delay / 60 %> Hours
-</p>
-
-
-<%= link_to 'Edit', edit_campaign_recipient_path(@campaign, @recipient) %> |
-<%= link_to 'Back', campaign_recipients_path %>
+<% @emails.each do |email| %>
+  <tr>
+  	<td><%= email.sent ? "Yes" : "No" %>
+    <td>
+      <strong><%= email.subject %></strong>
+      <br/>
+      <%= simple_format(email.body) %>
+    </td>
+    <td><%= l email.send_time, :format => :quick %></td>
+<!--    <td><%= link_to 'Edit', edit_campaign_recipient_email_path(@campaign, @recipient, email), :class => "btn btn-small" %></td>
+    <td><%= link_to 'Delete', [@campaign, @recipient, email], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-small" %></td>-->
+  </tr>
+<% end %>
+</table>
+<% end %>
