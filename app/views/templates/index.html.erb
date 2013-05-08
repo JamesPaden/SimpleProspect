@@ -1,0 +1,27 @@
+<%= link_to 'New Template', new_campaign_template_path(@campaign), :class => "btn btn-primary pull-right" %>
+<h1>Templates</h1>
+
+<% if @templates.length > 0 %>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Message</th>
+    <th>Delay</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @templates.each do |template| %>
+  <tr>
+    <td>
+      <strong><%= template.subject %></strong>
+      <br/>
+      <%= simple_format(template.body) %>
+    </td>
+    <td><%= template.delay / 60 %> Hours</td>
+    <td><%= link_to 'Edit', edit_campaign_template_path(@campaign, template), :class => "btn btn-small" %></td>
+    <td><%= link_to 'Delete', [@campaign, template], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-small" %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+<%= link_to "Back to Campaigns", campaigns_path, :class => "btn" %>

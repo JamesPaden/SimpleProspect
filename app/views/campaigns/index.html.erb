@@ -1,0 +1,25 @@
+<%= link_to 'New Campaign', new_campaign_path, { :class => "btn btn-primary pull-right"} %>
+<h1>Campaigns</h1>
+
+<% if @campaigns.length > 0%>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @campaigns.each do |campaign| %>
+  <tr>
+    <td><%= campaign.name %></td>
+    <td><% if campaign.templates.length > 0 %><%= link_to 'Manage Recipients', campaign_recipients_path(campaign), :class => "btn btn-small" %><% end %></td>
+    <td><%= link_to 'Manage Templates', campaign_templates_path(campaign), :class => "btn btn-small" %></td>
+    <td><%= link_to 'Edit', edit_campaign_path(campaign), :class => "btn btn-small" %></td>
+    <td><%= link_to 'Delete', campaign, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-small" %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Subject:</b>
+  <%= @template.subject %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @template.body %>
+</p>
+
+<p>
+  <b>Delay:</b>
+  <%= @template.delay / 60 %> Hours
+</p>
+
+
+<%= link_to 'Edit', edit_campaign_template_path(@campaign, @template) %> |
+<%= link_to 'Back', campaign_templates_path %>

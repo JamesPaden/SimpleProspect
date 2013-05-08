@@ -1,0 +1,46 @@
+<%= form_for([@campaign, @template]) do |f| %>
+  <% if @template.errors.any? %>
+    <div class="alert alert-error">
+      <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+
+      <ul>
+      <% @template.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :subject %>
+    <%= f.text_field :subject, :class => "input-xxlarge" %>
+  </div>
+  <div class="field">
+    <%= f.label :body %>
+    <span class="help-block">Insert template fields in a {{FIELD_NAME}} format</span>
+    <%= f.text_area :body, :rows => 20, :class => "input-xxlarge"  %>
+  </div>
+  <div class="field">
+    <%= f.label :delay %>
+    <%
+      delay_options = []
+      for i in 1..(24 * 365) 
+        if i > 24 * 7
+          if i % 24 == 0
+            delay_options << [(i / 24).to_s + " Days", i * 60]
+          end
+        elsif i > 24
+          days = (i / 24).floor
+          delay_options << ["#{days} Days, " + (i - (days * 24)).to_s + " Hours", i * 60]
+        else
+          delay_options << ["#{i} Hours", i * 60]
+        end
+      end
+    %>
+    <%= select_tag("template[delay]", options_for_select(delay_options, @template.delay)) %>
+    <span class="help-block">The delay will be ignored for the first email. Subsequent emails will be sent after their selected delay.</span>
+  </div>
+  <div class="actions">
+    <%= f.submit nil, :class => "btn btn-primary" %>
+  </div>
+<% end %>
