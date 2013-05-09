@@ -1,6 +1,6 @@
 desc "This task is called by the Heroku scheduler add-on"
 task :send_emails => :environment do
-	emails = Email.joins(:recipient).where("recipients.enabled is true AND send_time < ? AND sent is not true", Time.zone.now)
+	emails = Email.joins(:recipient).where("recipients.enabled is true AND send_time < ? AND sent is not true", Time.zone.now).readonly(false)
 	emails.each do |email|
 		mail = Mail.deliver do
 		  from     email.recipient.campaign.user.email
