@@ -15,7 +15,7 @@
     <td>
       <strong><%= template.subject %></strong>
       <br/>
-      <%= simple_format(template.body) %>
+      <%= raw template.body %>
     </td>
     <td><%= template.delay / 60 %> Hours</td>
     <td><%= link_to 'Edit', edit_campaign_template_path(@campaign, template), :class => "btn btn-small" %></td>

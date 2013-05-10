@@ -16,7 +16,7 @@
     <td>
       <strong><%= email.subject %></strong>
       <br/>
-      <%= simple_format(email.body) %>
+      <%= raw email.body %>
     </td>
     <td><%= l email.send_time, :format => :quick %></td>
 <!--    <td><%= link_to 'Edit', edit_campaign_recipient_email_path(@campaign, @recipient, email), :class => "btn btn-small" %></td>

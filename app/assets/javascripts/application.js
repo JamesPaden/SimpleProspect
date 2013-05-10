@@ -31,3 +31,10 @@
 //= require twitter/bootstrap/carousel
 //= require twitter/bootstrap/typeahead
 //= require twitter/bootstrap/affix
+//= require bootstrap-wysihtml5
+
+$(function(){
+	$('.wysihtml5').each(function(i, elem) {
+	  $(elem).wysihtml5({html: true});
+	});
+});
