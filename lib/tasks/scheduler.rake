@@ -7,7 +7,10 @@ task :send_emails => :environment do
 		  to       email.recipient.email
 		  bcc	   email.recipient.campaign.user.bcc
 		  subject  email.subject
-		  body     email.body
+		  html_part do
+		    content_type 'text/html; charset=UTF-8'
+		    body email.body
+		  end
 		  delivery_method :smtp, { 
 		  	:address => 'smtp.gmail.com',
 		  	:port => '587',
