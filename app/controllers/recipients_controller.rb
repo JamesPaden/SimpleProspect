@@ -3,7 +3,7 @@ class RecipientsController < ApplicationController
   # GET /recipients
   # GET /recipients.json
   def index
-    @recipients = Recipient.all
+    @recipients = @campaign.recipients.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -53,7 +53,7 @@ class RecipientsController < ApplicationController
     respond_to do |format|
       if @recipient.save
 
-        send_time = Time.new(params[:start_time][:year], params[:start_time][:month],params[:start_time][:day] , params[:start_time][:hour], params[:start_time][:minute])
+        send_time = Time.zone.parse(params[:start_time][:year] + "-" + params[:start_time][:month] + "-" + params[:start_time][:day] + " " + params[:start_time][:hour] + ":" + params[:start_time][:minute])
         @campaign.templates.each_with_index do |template,i|
           body = template.body
           subject = template.subject
@@ -111,6 +111,6 @@ class RecipientsController < ApplicationController
 
   private
   def load_campaign
-    @campaign = Campaign.find(params[:campaign_id])
+    @campaign = current_user.campaigns.find(params[:campaign_id])
   end
 end
