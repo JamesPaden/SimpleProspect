@@ -32,3 +32,5 @@
 //= require twitter/bootstrap/carousel
 //= require twitter/bootstrap/typeahead
 //= require twitter/bootstrap/affix
+CKEDITOR.config.toolbar = 'Basic';
+CKEDITOR.config.allowedContent = true;
