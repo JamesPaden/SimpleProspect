@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+   <span class="help-block">Create template fields into the body or subject in a {{FIELD_NAME}} format</span>
 
   <div class="field">
     <%= f.label :subject %>
@@ -17,8 +18,7 @@
   </div>
   <div class="field">
     <%= f.label :body %>
-    <span class="help-block">Insert template fields in a {{FIELD_NAME}} format</span>
-    <%= f.text_area :body, :rows => 20, :class => "input-xxlarge wysihtml5"  %>
+    <%= f.cktext_area :body, :rows => 20, :class => "input-xxlarge"  %>
   </div>
   <div class="field">
     <%= f.label :delay %>

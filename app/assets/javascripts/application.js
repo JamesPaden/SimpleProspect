@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor/init
 //= require_tree .
 
 // Include all twitter's javascripts
@@ -31,10 +32,3 @@
 //= require twitter/bootstrap/carousel
 //= require twitter/bootstrap/typeahead
 //= require twitter/bootstrap/affix
-//= require bootstrap-wysihtml5
-
-$(function(){
-	$('.wysihtml5').each(function(i, elem) {
-	  $(elem).wysihtml5({html: true});
-	});
-});

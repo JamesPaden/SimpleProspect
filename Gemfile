@@ -7,8 +7,9 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'anjlab-bootstrap-rails', '>= 2.3', :require => 'bootstrap-rails'
-gem 'bootstrap-wysihtml5-rails'
+gem "ckeditor"
 gem "commonjs"
+gem "font-awesome-rails"
 gem 'haml'
 gem 'mail'
 gem 'pg'
