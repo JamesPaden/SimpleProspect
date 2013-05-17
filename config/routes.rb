@@ -22,6 +22,8 @@ Salesemails::Application.routes.draw do
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
 
+  match "assets/images/:id/spacer.png" => 'emails#open', :as => 'email_tracking_image'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

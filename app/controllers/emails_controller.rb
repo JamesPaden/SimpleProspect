@@ -1,11 +1,12 @@
 class EmailsController < ApplicationController
-  before_filter :require_login, :load_recipient
+  before_filter :require_login, :except => [:open]
+  before_filter :load_recipient, :except => [:open]
   # GET /emails  
   # GET /emails.json
   def index
     @emails = @recipient.emails.all
 
-    respond_to do |format|
+    respond_to do |format|  
       format.html # index.html.erb
       format.json { render json: @emails }
     end
@@ -80,6 +81,13 @@ class EmailsController < ApplicationController
       format.html { redirect_to recipient_emails_path }
       format.json { head :no_content }
     end
+  end
+
+  def open
+    @email = Email.find(params[:id])
+    @email.open_count = @email.open_count + 1
+    @email.save
+    send_file Rails.root.join('app','assets','images','spacer.png'), :type => 'image/png', :disposition => 'inline' 
   end
 
   private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508114251) do
+ActiveRecord::Schema.define(:version => 20130517200735) do
 
   create_table "campaigns", :force => true do |t|
     t.string   "name"
@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(:version => 20130508114251) do
     t.text     "body"
     t.datetime "send_time"
     t.boolean  "sent"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.integer  "recipient_id"
+    t.integer  "open_count",   :default => 0
   end
 
   create_table "recipients", :force => true do |t|
@@ -57,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20130508114251) do
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.string   "bcc"
+    t.string   "name"
   end
 
 end

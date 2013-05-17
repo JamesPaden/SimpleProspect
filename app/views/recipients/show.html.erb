@@ -4,6 +4,7 @@
 <table class="table table-bordered table-striped">
   <tr>
     <th>Sent</th>
+    <th>Opens</th>
     <th>Message</th>
     <th>Scheduled For</th>
 <!--    <th></th>
@@ -12,7 +13,8 @@
 
 <% @emails.each do |email| %>
   <tr>
-  	<td><%= email.sent ? "Yes" : "No" %>
+  	<td><%= email.sent ? "Yes" : "No" %></td>
+    <td><%= email.open_count %></td>
     <td>
       <strong><%= email.subject %></strong>
       <br/>

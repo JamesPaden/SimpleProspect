@@ -1,6 +1,8 @@
 ---
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
+spacer.png: spacer-8bbd5b7cc517b0d25ea5b2bfb21385ba.png
+spacer/index.png: spacer-8bbd5b7cc517b0d25ea5b2bfb21385ba.png
 application.js: application-e08882d8b67c9133b73b2352bbbf1127.js
 application/index.js: application-e08882d8b67c9133b73b2352bbbf1127.js
 ckeditor/config.js: ckeditor/config-1b13569e9620782f423d4cd3ce931750.js

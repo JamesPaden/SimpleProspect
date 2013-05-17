@@ -9,6 +9,7 @@
     <th>Email</th>
     <th>Status</th>
     <th>Messages Sent</th>
+    <th>Messages Opened</th>
     <th></th>
     <th></th>
   </tr>
@@ -26,6 +27,7 @@
       <% end %>
     </td>
     <td><div class="text-right"><%= recipient.emails.where("sent is true").count %></div></td>
+    <td><div class="text-right"><%= recipient.emails.where("open_count > 0").count %></div></td>
     <td><%= link_to 'Edit', edit_campaign_recipient_path(@campaign, recipient), :class => "btn btn-small" %></td>
     <td><%= link_to 'Delete', [@campaign, recipient], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-small" %></td>
   </tr>
