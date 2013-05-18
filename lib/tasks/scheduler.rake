@@ -28,7 +28,8 @@ task :send_emails => :environment do
 			email.sent = true
 			email.save
 		rescue => ex
-			logger.error ex.message
+			puts ex.message
+			puts ex.backtrace
 		end
 	end
 end
