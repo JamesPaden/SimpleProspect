@@ -13,7 +13,7 @@ task :send_emails => :environment do
 		  subject  email.subject
 		  html_part do
 		    content_type 'text/html; charset=UTF-8'
-		    body email.body + "<img src='http://www.simpleprospect.com/assets/images/" + email.id + "/spacer.png' width='1' height='1' />"
+		    body email.body + "<img src='http://www.simpleprospect.com/assets/images/" + email.id.to_s + "/spacer.png' width='1' height='1' />"
 		  end
 		  delivery_method :smtp, { 
 		  	:address => 'smtp.gmail.com',
